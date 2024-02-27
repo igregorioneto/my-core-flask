@@ -1,0 +1,11 @@
+Flask
+Flask-SQLAlchemy
+Flask-Login
+pytest
+pytest-flask
+Flask-RESTful
+WTForms
+Flask-WTF
+python-dotenv
+PyYAML
+requests
