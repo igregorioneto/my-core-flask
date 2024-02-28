@@ -1,20 +1,19 @@
 from flask import Flask, Blueprint
 from .config import Config
-
-# Criando um blueprint para as rotas
-main_bp = Blueprint('main', __name__)
-
-# Rota simples de acesso
-@main_bp.route("/")
-def index():
-    return "Olá, mundo! Esta é minha primeira rota."
+from .routes.routes import configure_routes
 
 # Função principal
-def create_app():
+def create_app(use_auth=False, use_db=False, db_uri=None):
     app = Flask(__name__)
     app.config.from_object(Config)
 
     # Registro do Blueprint
-    app.register_blueprint(main_bp)
+    # app.register_blueprint(main_bp)
+
+    configure_routes(app=app, use_auth=use_auth)
+
+    if use_db:
+        if db_uri:
+            app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
     return app
