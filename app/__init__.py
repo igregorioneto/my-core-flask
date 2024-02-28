@@ -1,4 +1,5 @@
 from flask import Flask, Blueprint
+from flask_sqlalchemy import SQLAlchemy
 from .config import Config
 from .routes.routes import configure_routes
 
@@ -15,5 +16,7 @@ def create_app(use_auth=False, use_db=False, db_uri=None):
     if use_db:
         if db_uri:
             app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+
+    db = SQLAlchemy(app)
 
     return app
