@@ -1,0 +1,27 @@
+# Arquivos de byte Python
+*.pyc
+__pycache__/
+*/__pycache__/
+
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+
+# Arquivos de dependências Python
+/.venv/
+/lib/
+/lib64/
+
+# Arquivos de logs
+/log/
+/logs/
+
+# Arquivos de banco de dados
+*.sqlite
+*.db
+
+# Arquivos de migrações do Alembic
+/migrations/

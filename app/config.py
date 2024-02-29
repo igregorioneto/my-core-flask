@@ -1,9 +1,14 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 class Config:
     """Configurações base do aplicativo Flask"""
     DEBUG = False
     TESTING = False
     SECRET_KEY = "key"
-    SQLALCHEMY_DATABASE_URI = "sqlite:///site.db"
+    SQLALCHEMY_DATABASE_URI = f"mysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_DATABASE')}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(Config):

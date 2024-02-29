@@ -1,6 +1,6 @@
 from app import db
 
-class BaseModel(db.model):
+class BaseModel(db.Model):
     """Classe base para todos os modelos."""
     __abstract__ = True
 

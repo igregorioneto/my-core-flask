@@ -1,6 +1,7 @@
 Flask
 Flask-SQLAlchemy
 Flask-Login
+Flask-Migrate
 pytest
 pytest-flask
 Flask-RESTful
@@ -9,3 +10,4 @@ Flask-WTF
 python-dotenv
 PyYAML
 requests
+mysqlclient
