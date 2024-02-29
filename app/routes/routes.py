@@ -1,4 +1,5 @@
 from flask import Blueprint
+from .user_routes import user_bp
 
 main_bp = Blueprint('main', __name__)
 
@@ -10,6 +11,7 @@ def index():
 def configure_routes(app, use_auth=False):
     # Registrar rota principal
     app.register_blueprint(main_bp)
+    app.register_blueprint(user_bp)
 
     # Verifica se a autenticação esta habilitada
     if use_auth:
