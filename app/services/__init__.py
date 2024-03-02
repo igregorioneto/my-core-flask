@@ -1,1 +1,1 @@
-from crud_service import CRUDService
+from .crud_service import CRUDService

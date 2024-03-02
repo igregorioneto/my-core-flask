@@ -1,9 +1,10 @@
-from app import db
+#from app import db
 
-class BaseModel(db.Model):
+class BaseModel:
     """Classe base para todos os modelos."""
     __abstract__ = True
 
-    id = db.Column(db.Integer, primary_key=True)
-    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
-    updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+    def __init__(self, db):
+        self.id = db.Column(db.Integer, primary_key=True)
+        self.created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
+        self.updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
