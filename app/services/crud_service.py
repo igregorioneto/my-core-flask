@@ -1,3 +1,4 @@
+# Service genérico para ser instânciado
 class CRUDService:
     def __init__(self, db):
         self.db = db

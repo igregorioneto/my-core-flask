@@ -1,5 +1,5 @@
 from flask import Blueprint
-from .user_routes import user_bp
+from .user_routes import create_user_blueprint
 
 main_bp = Blueprint('main', __name__)
 
@@ -8,8 +8,12 @@ main_bp = Blueprint('main', __name__)
 def index():
     return "Olá, mundo! Esta é minha primeira rota."
 
-def configure_routes(app, use_auth=False):
-    # Registrar rota principal
+# Configuração das rotas
+def configure_routes(app, use_auth=False, db=None):
+    # Criando o blueprint
+    user_bp = create_user_blueprint(db=db)
+    
+    #Registrando Rotas
     app.register_blueprint(main_bp)
     app.register_blueprint(user_bp)
 
