@@ -5,8 +5,6 @@ from .config import Config
 from .routes.routes import configure_routes
 
 
-db = SQLAlchemy()
-migrate = Migrate()
 # Função principal
 def create_app(use_auth=False, use_db=False, db_uri=None):
     app = Flask(__name__)
@@ -19,7 +17,10 @@ def create_app(use_auth=False, use_db=False, db_uri=None):
         if db_uri:
             app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
-    db.__init__(app)
+    db = SQLAlchemy()
+    migrate = Migrate()
+
+    db.init_app(app)
     migrate.__init__(app, db)
 
     configure_routes(app=app, use_auth=use_auth, db=db)

@@ -11,7 +11,7 @@ def index():
 # Configuração das rotas
 def configure_routes(app, use_auth=False, db=None):
     # Criando o blueprint
-    user_bp = create_user_blueprint(db=db)
+    user_bp = create_user_blueprint()
     
     #Registrando Rotas
     app.register_blueprint(main_bp)

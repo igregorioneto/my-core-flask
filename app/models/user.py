@@ -5,9 +5,12 @@ class User(BaseModel):
 
     __tablename__ = "tb_users"
 
-    def __init__(self, db):
+    def __init__(self):
+        
         super().__init__(db)  # Chame o construtor de BaseModel
-
+        
         self.username = db.Column(db.String(50), unique=True, nullable=False)
         self.email = db.Column(db.String(120), unique=True, nullable=False)
         self.password = db.Column(db.String(255), nullable=False)
+
+        db.Base.query = db.session.query_property()
